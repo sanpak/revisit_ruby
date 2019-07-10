@@ -11,3 +11,4 @@ puts 'I like' + ' apple pie.'
 # puts 'Betty' + 12
 puts '2' * 5
 puts 'You\'re swell!'
+puts '\n'
