@@ -11,4 +11,8 @@ composer = 'Mozart'
 puts composer + ' was "da bomb" , in his day.'
 puts '""'
 
-var = ""
+var = 'just another ' + 'string'
+puts var
+
+var = 5 * ( 1 + 2 )
+puts var
