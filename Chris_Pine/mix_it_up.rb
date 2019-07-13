@@ -21,4 +21,4 @@ middle_name = gets.chomp
 middle_name = " " if middle_name == "no"
 puts "What's your last name?"
 last_name = gets.chomp
-puts "Hello " + first_name + middle_name + last_name
+puts "Hello " + first_name + " " + middle_name + " " + last_name
