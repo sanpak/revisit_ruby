@@ -14,11 +14,18 @@
 # puts 3.to_i
 # puts 20.to_i
 # puts "What's your name?"
-puts "What's your first name?"
-first_name = gets.chomp
-puts "What's your middle name? type no if no middle name"
-middle_name = gets.chomp
-middle_name = " " if middle_name == "no"
-puts "What's your last name?"
-last_name = gets.chomp
-puts "Hello " + first_name + " " + middle_name + " " + last_name
+
+#Chris Pine - A few thing to try no1.
+# puts "What's your first name?"
+# first_name = gets.chomp
+# puts "What's your middle name? type no if no middle name"
+# middle_name = gets.chomp
+# middle_name = " " if middle_name == "no"
+# puts "What's your last name?"
+# last_name = gets.chomp
+# puts "Hello " + first_name + " " + middle_name + " " + last_name
+
+#Chris Pine - A few thing to try no2.
+puts "What's your favorite number?"
+fav_number = gets.chomp.to_i
+puts "I suggest " + (fav_number + 1).to_s + " is better."
