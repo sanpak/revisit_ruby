@@ -35,3 +35,6 @@ def table_of_contents
 
 end
 table_of_contents
+
+puts 5 ** 2
+puts 5 ** 0.5
