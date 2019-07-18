@@ -69,11 +69,27 @@
 # puts iAmPurple || iEatRocks
 # puts
 # puts !iAmPurple
-i = 99
- while i != 1
-   puts " #{i} bottles of beer on the wall, #{i} bottles of beer. Take one down and pass it around, #{i-1} bottles of beer on the wall. "
-   i -= 1
- end
 
- puts "1 bottles of beer on the wall, 1 bottles of beer. Take one down and pass it around, no more bottles of beer on the wall."
- puts "no more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall."
+#A few things to try
+#99 bottles beer on the wall lyrics
+# i = 99
+#  while i != 1
+#    puts " #{i} bottles of beer on the wall, #{i} bottles of beer. Take one down and pass it around, #{i-1} bottles of beer on the wall. "
+#    i -= 1
+#  end
+#
+#  puts "1 bottles of beer on the wall, 1 bottles of beer. Take one down and pass it around, no more bottles of beer on the wall."
+#  puts "no more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall."
+#deaf grandma program
+def deaf_grandma
+  puts "Hello son. How are you?"
+  respond = gets.chomp
+  until respond == "BYE"
+    puts "HUG?! SPEAK UP, SONNY!"
+    respond = gets.chomp
+    puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s if respond == respond.upcase
+  end
+  puts "BYE"
+end
+
+deaf_grandma
