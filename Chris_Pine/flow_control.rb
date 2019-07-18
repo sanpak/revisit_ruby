@@ -81,18 +81,41 @@
 #  puts "1 bottles of beer on the wall, 1 bottles of beer. Take one down and pass it around, no more bottles of beer on the wall."
 #  puts "no more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall."
 #deaf grandma program
+# def deaf_grandma
+#   respond = ""
+#   until respond == "BYE"
+#     puts "Hello son. How are you?"
+#     respond = gets.chomp
+#       if respond == respond.upcase
+#         puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
+#       else
+#         puts "HUG?! SPEAK UP, SONNY!"
+#       end
+#   end
+#   puts "BYE"
+# end
+#
+# deaf_grandma
+
+#deaf grandma version 2
 def deaf_grandma
-  respond = ""
-  until respond == "BYE"
-    puts "Hello son. How are you?"
+  puts "Hello Son. How are you?"
+
+  while true
     respond = gets.chomp
-      if respond == respond.upcase
-        puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
-      else
-        puts "HUG?! SPEAK UP, SONNY!"
-      end
+
+    if respond == "BYE"
+      puts "BYE SON!"
+      break
+    end
+
+    if respond == respond.upcase
+      puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
+    else
+      puts "HUG?! SPEAK UP, SONNY!"
+    end
+
   end
-  puts "BYE"
 end
 
 deaf_grandma
