@@ -100,15 +100,19 @@
 #deaf grandma version 2
 def deaf_grandma
   puts "Hello Son. How are you?"
-
+  i = 0
+  quite = ""
   while true
     respond = gets.chomp
-
     if respond == "BYE"
-      puts "BYE SON!"
-      break
+      i += 1
+      if i == 3
+        puts "BYE, SON!"
+        break
+      end
+    else
+      i = 0
     end
-
     if respond == respond.upcase
       puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
     else
@@ -116,6 +120,7 @@ def deaf_grandma
     end
 
   end
+
 end
 
 deaf_grandma
