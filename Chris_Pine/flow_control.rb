@@ -126,8 +126,42 @@
 # deaf_grandma
 
 #leap year
+# def leap_year(start_year,end_year)
+#   # (start_year..end_year).select { |x| puts x if x % 4 == 0 || (x % 100 == 0 && x % 400 == 0) }
+#   # this has faults
+#   leap_year = []
+#   while start_year < end_year
+#     if start_year % 4 == 0
+#       if start_year % 100 == 0 && start_year % 400 == 0
+#         leap_year << start_year
+#       end
+#       leap_year << start_year
+#     end
+#     start_year += 1
+#   end
+#   puts leap_year
+# end
+
+#leap year2
+
 def leap_year(start_year,end_year)
-  (start_year..end_year).select { |x| puts x if x % 4 == 0 || (x % 100 == 0 && x % 400 == 0) }
+  (start_year..end_year).select { |x| puts x if test_leap_year(x) == true}
 end
 
-leap_year(1984,2004)
+def test_leap_year(year)
+  if year % 100 == 0
+    if year % 400 == 0
+      true
+    else
+      false
+    end
+  else
+    if year % 4 == 0
+      true
+    end
+  end
+
+end
+
+# puts test_leap_year(1800)
+# puts leap_year(1800,1850)
