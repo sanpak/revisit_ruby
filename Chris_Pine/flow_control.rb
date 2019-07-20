@@ -98,29 +98,36 @@
 # deaf_grandma
 
 #deaf grandma version 2
-def deaf_grandma
-  puts "Hello Son. How are you?"
-  i = 0
-  quite = ""
-  while true
-    respond = gets.chomp
-    if respond == "BYE"
-      i += 1
-      if i == 3
-        puts "BYE, SON!"
-        break
-      end
-    else
-      i = 0
-    end
-    if respond == respond.upcase
-      puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
-    else
-      puts "HUG?! SPEAK UP, SONNY!"
-    end
+# def deaf_grandma
+#   puts "Hello Son. How are you?"
+#   i = 0
+#   quite = ""
+#   while true
+#     respond = gets.chomp
+#     if respond == "BYE"
+#       i += 1
+#       if i == 3
+#         puts "BYE, SON!"
+#         break
+#       end
+#     else
+#       i = 0
+#     end
+#     if respond == respond.upcase
+#       puts "NO, NOT SINCE 19" + (30 + rand(20)).to_s
+#     else
+#       puts "HUG?! SPEAK UP, SONNY!"
+#     end
+#
+#   end
+#
+# end
+#
+# deaf_grandma
 
-  end
-
+#leap year
+def leap_year(start_year,end_year)
+  (start_year..end_year).select { |x| puts x if x % 4 == 0 || (x % 100 == 0 && x % 400 == 0) }
 end
 
-deaf_grandma
+leap_year(1984,2004)
