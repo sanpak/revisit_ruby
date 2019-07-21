@@ -160,8 +160,33 @@ def test_leap_year(year)
       true
     end
   end
-
 end
 
+# leap_year(1900,1930)
+
+def leap_year_v2(start_year,end_year)
+  leap_years_output = []
+  while start_year < end_year
+    if start_year % 4 == 0
+      if start_year % 100 != 0 || start_year % 400 == 0
+        leap_years_output << start_year
+      end
+    end
+    start_year += 1
+  end
+  leap_years_output
+end
+# puts leap_year_v2(1900,1930)
+
+
+def leap_year_v3(start_year,end_year)
+  (start_year..end_year).each do |year|
+    next if year % 4 != 0
+    next if year % 100 == 0 && year % 400 != 0
+    puts year
+  end
+end
+
+leap_year_v3(1900,1930)
 # puts test_leap_year(1800)
 # puts leap_year(1800,1850)
