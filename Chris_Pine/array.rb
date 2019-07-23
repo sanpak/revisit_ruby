@@ -99,4 +99,24 @@ def test_my_own_sort(words)
   end
   return words
 end
-puts test_my_own_sort(["banana","apple","john","cat","dog","cd"])
+# puts test_my_own_sort(["banana","apple","john","cat","dog","cd"])
+
+def test_my_own_sort_v2(words)
+  i = 0
+
+  while true
+    i = 0
+    swapped = false
+    while i < words.length - 1
+      if words[i] > words[i+1]
+        words[i],words[i+1] = words[i+1],words[i]
+        swapped = true
+      end
+      i += 1
+    end
+    break if swapped == false
+  end
+  return words
+end
+
+puts test_my_own_sort_v2(["banana","apple","john","cat","dog","cd"])
