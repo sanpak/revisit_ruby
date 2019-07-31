@@ -179,7 +179,17 @@ def my_englishNumber(number)
   tenthPlace = ["ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninty"]
   teens = ["eleven","twelve","thirteen","forteen","fifteen","sixteen","seventeen","eighteen","ninteen"]
 
+
   left = number
+  write = left / 1000000
+  left = left % 1000000
+
+
+  if write > 0
+    million = my_englishNumber(write)
+    numString = numString + million + " million" + " and "
+  end
+
   write = left / 1000
   left = left % 1000
 
@@ -219,4 +229,4 @@ def my_englishNumber(number)
   numString
 end
 
-puts my_englishNumber(1175)
+puts my_englishNumber(21000)
