@@ -122,4 +122,101 @@ def englishNumber_v2(number)
 
 end
 
-puts englishNumber_v2(97)
+# puts englishNumber_v2(97)
+def englishNumber_v3(number)
+  numString = ""
+  onesPlace = ["one","two","three","four","five","six","seven","eight","nine"]
+  tenthPlace = ["ten","twenty","thirty","forty","Fifty","sixty","seventy","eighty","ninty"]
+  teens = ["eleven","twenty","thirteen","forteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+  if number < 0
+    puts "Enter number greater than zero"
+  end
+  if number == 0
+    puts "zero"
+  end
+
+
+  left = number
+  write = left / 100
+  left = left % 100
+
+  if write > 0
+    hundred = englishNumber_v3(write)
+    numString = numString + hundred + " hundred"
+    if left > 0
+      numString += " "
+    end
+  end
+
+  write = left / 10
+  left = left % 10
+
+  if write > 0
+    if write == 1 && left > 0
+      numString += teens[left- 1]
+      left = 0
+    else
+      numString += tenthPlace[write - 1]
+    end
+    if left > 0
+      numString += "-"
+    end
+  end
+
+  write = left
+  left = 0
+
+  if write > 0
+    numString += onesPlace[write -1]
+  end
+  numString
+end
+#puts englishNumber_v3(121)
+
+def my_englishNumber(number)
+  numString = ""
+  onesPlace = ["one","two","three","four","five","six","seven","eight","nine"]
+  tenthPlace = ["ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninty"]
+  teens = ["eleven","twelve","thirteen","forteen","fifteen","sixteen","seventeen","eighteen","ninteen"]
+
+  left = number
+  write = left / 1000
+  left = left % 1000
+
+  if write > 0
+    thousand = my_englishNumber(write)
+    numString = numString + thousand + " thousand" + " and "
+  end
+
+  write = left / 100
+  left = left % 100
+
+  if write > 0
+    hundred = my_englishNumber(write)
+    numString = numString + hundred + " hundred" + " and "
+  end
+
+  write = left / 10
+  left = left % 10
+
+  if write > 0
+    if write == 1 && left > 0
+      numString = numString + teens[left - 1]
+      left = 0
+    else
+      numString += tenthPlace[write -1]
+    end
+    if left > 0
+      numString += " and "
+    end
+  end
+  write = left
+  left = 0
+
+  if write > 0
+    numString += onesPlace[write -1]
+  end
+  numString
+end
+
+puts my_englishNumber(1175)
