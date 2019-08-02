@@ -290,5 +290,53 @@ def my_englishNumber_zillions(num)
   numString
 end
 
+def englishNumber_zillions(number)
+  numString = ""
+  onesPlace = ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine"]
+  tenthPlace = ["Ten","Twenty","Thity","Forty","Fifty","Sixty","Seventy","Eighty","Ninty"]
+  teens = ["Eleven","Twelve","Thirteen","Forteen","Fifteen","Sixteen","Seventeen","Eighteen","Ninteen"]
+  zillions = [ ["Hundred",2],["Thousand",3],["Million",6],["Brillion",9],["Trillion",12],["Quadrillion",15] ]
 
-puts my_englishNumber_zillions(999999)
+  left = number
+  while zillions.length > 0
+    zil_pair = zillions.pop
+    zil_name = zil_pair[0]
+    zil_base = 10 ** zil_pair[1]
+
+    write = left / zil_base
+    left = left % zil_base
+
+    if write > 0
+      prefix = englishNumber_zillions(write)
+      numString = numString + prefix + " " + zil_name
+      if left > 0
+        numString += " "
+      end
+    end
+  end
+
+  write = left / 10
+  left = left % 10
+
+  if write > 0
+    if write == 1 && left > 0
+      numString += teens[left - 1]
+      left = 0
+    else
+      numString += tenthPlace[write - 1]
+    end
+    if left > 0
+      numString += "-"
+    end
+  end
+
+  write = left
+  left = 0
+
+  if write > 0
+    numString += onesPlace[write - 1]
+  end
+  numString
+end
+
+puts englishNumber_zillions(9999)
