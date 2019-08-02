@@ -229,4 +229,66 @@ def my_englishNumber(number)
   numString
 end
 
-puts my_englishNumber(21000)
+# puts my_englishNumber(21215)
+
+
+def my_englishNumber_zillions(num)
+  if num < 0
+    return "Please enter a number that is not negative"
+  end
+  if num == 0
+    return "zero"
+  end
+  numString = ""
+  onesPlace = ["one","two","three","four","five","six","seven","eight","nine"]
+  tenthPlace = ["ten","twenty","thirty","fouty","fifty","sixty","seventy","eighty","ninty"]
+  teens = ["eleven","twelve","thirteen","forteen","fifteen","sixteen","seventeen","eighteen","ninteen"]
+
+  zillions = [ ["hundred",2], ["thousand",3], ["million",6], ["billion",9], ["trillion",12],
+              ["quadrillion",15],["quintillion",18],["sextillion",21], ["septillion",24],
+              ["octillion",27], ["nonillion",30], ["decillion",33], ["undecillion",36],
+              ["duodecillion",39], ["tredecillion",42], ["quattuordecillion",45], ["quindecillion", 48],
+              ["sexdecillion",51], ["septendecillion",54], ["octodecillion", 57], ["novemdecillion",60],
+              ["vigintillion",63], ["googol",100] ]
+  left = num
+  while zillions.length > 0
+    zil_pair = zillions.pop
+    zil_name = zil_pair[0]
+    zil_base = 10 ** zil_pair[1]
+
+    write = left / zil_base
+    left = left % zil_base
+
+    if write > 0
+      prefix = my_englishNumber_zillions(write)
+      numString = numString + prefix + " " + zil_name
+      if left > 0
+        numString += " "
+      end
+    end
+  end
+
+  write = left / 10
+  left = left % 10
+
+  if write > 0
+    if write == 1 && left > 0
+      numString += teens[left - 1]
+      left = 0
+    else
+      numString += tenthPlace[write - 1]
+    end
+    if left > 0
+      numString += "-"
+    end
+  end
+  write = left
+  left = 0
+  if write > 0
+    numString += onesPlace[write - 1]
+  end
+  numString
+end
+
+
+puts my_englishNumber_zillions(999999)
