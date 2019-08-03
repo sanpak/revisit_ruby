@@ -289,8 +289,12 @@ def my_englishNumber_zillions(num)
   end
   numString
 end
+# puts my_englishNumber_zillions(120)
 
 def englishNumber_zillions(number)
+  if number == 0
+    return "zero"
+  end
   numString = ""
   onesPlace = ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine"]
   tenthPlace = ["Ten","Twenty","Thity","Forty","Fifty","Sixty","Seventy","Eighty","Ninty"]
@@ -339,4 +343,47 @@ def englishNumber_zillions(number)
   numString
 end
 
-puts englishNumber_zillions(9999)
+# puts englishNumber_zillions()
+
+def bottles_of_beer_lyric(bottles)
+  max_bottle = bottles
+  (0..bottles).each do |bottle|
+    bottle_count = max_bottle - bottle
+    if bottle_count > 1
+      bottle_englishName = englishNumber_zillions(bottle_count)
+      next_bottle_englishName =  englishNumber_zillions(bottle_count - 1)
+    else
+      bottle_englishName = englishNumber_zillions(1)
+      next_bottle_englishName = " no more"
+    end
+    break if bottle_count == 0
+    puts bottle_englishName + " bottles of beer on the wall," + bottle_englishName + " bottles of beer.\n"
+    puts "Take one down and pass it around," + " " + next_bottle_englishName + " bottles of beer on the wall."
+    puts ""
+  end
+    bottle_englishName = "no more"
+    next_bottle_englishName = "no more"
+    puts bottle_englishName + " bottles of beer on the wall," + bottle_englishName + " bottles of beer.\n"
+    puts "Go to the store and buy some more," + " " + englishNumber_zillions(max_bottle) + " bottles of beer on the wall."
+    puts ""
+end
+
+bottles_of_beer_lyric(102)
+
+
+def tryout(bottles)
+  max_bottle = bottles
+  (0..bottles).each do |bottle|
+    bottle_englishName = (bottle - max_bottle).abs
+    if bottle_englishName > 1
+      next_bottle_englishName = (bottle - max_bottle).abs - 1
+    else
+      bottle_englishName = " no more" if bottle_englishName == 0
+      next_bottle_englishName  = " no more"
+    end
+    puts bottle_englishName.to_s + " bottles" + next_bottle_englishName.to_s + " next bottle" + "\n"
+  end
+    puts "go to the store and buy some more" + max_bottle.to_s + " bottles of beer on the wall"
+end
+
+# tryout(10)
