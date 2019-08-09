@@ -66,7 +66,7 @@ def recursive_sort(unsorted_array,sorted_array)
   (unsorted_array.length).times do
     smallest_value = unsorted_array[0]
     smallest_value_index = 0
-    i = 0
+    i = 1
     while i < unsorted_array.length
       if smallest_value > unsorted_array[i]
         smallest_value = unsorted_array[i]
