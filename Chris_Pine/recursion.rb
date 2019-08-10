@@ -116,4 +116,19 @@ def recursive_sort(unsorted_array,sorted_array)
   # puts sorted_array
 end
 
-puts recursive_sort([2,5,1,3,7,4,2],[])
+# puts recursive_sort([2,5,1,3,7,4,2],[])
+
+def bubble_sort_recursive(array)
+  i= 0
+
+  while i < array.length - 1
+    if array[i] > array[i + 1]
+      array[i],array[i + 1] = array[i + 1],array[i]
+      bubble_sort_recursive(array)
+    end
+    i += 1
+  end
+  return array
+end
+
+puts bubble_sort_recursive([2,3,1,5,4,10,20,11,13,18,15,14])
