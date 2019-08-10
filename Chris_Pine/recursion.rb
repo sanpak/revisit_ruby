@@ -44,6 +44,24 @@ def sort(some_array)
 end
 
 def recursive_sort(unsorted_array,sorted_array)
+
+  #solve it recursively
+  if unsorted_array.length == 0
+    return sorted_array
+  end
+
+  smallest_value = unsorted_array[0]
+  smallest_value_index = 0
+  i = 0
+  while i < unsorted_array.length
+    if smallest_value > unsorted_array[i]
+      smallest_value = unsorted_array[i]
+      smallest_value_index = i
+    end
+    i += 1
+  end
+  sorted_array << unsorted_array.delete_at(smallest_value_index)
+  recursive_sort(unsorted_array,sorted_array)
   #!!!!!!!!! The following is bubble sort!!!!!!!!
   # swapped = true
   #
@@ -63,22 +81,22 @@ def recursive_sort(unsorted_array,sorted_array)
   #!!!!!!!!!!!! end of bubble sort!!!!!!!!!!!!!!!!!!!!!!!!
 
   #This method is based on the idea of bubble sort algorithm
-  swapped = true
-  while swapped
-    smallest_value = unsorted_array[0]
-    smallest_value_index = 0
-    i = 1
-    while i < unsorted_array.length
-      if smallest_value > unsorted_array[i]
-        smallest_value = unsorted_array[i]
-        smallest_value_index = i
-      end
-      i += 1
-    end
-    sorted_array << unsorted_array.delete_at(smallest_value_index)
-    swapped = false if unsorted_array.length == 0
-  end
-  puts sorted_array
+  # swapped = true
+  # while swapped
+  #   smallest_value = unsorted_array[0]
+  #   smallest_value_index = 0
+  #   i = 1
+  #   while i < unsorted_array.length
+  #     if smallest_value > unsorted_array[i]
+  #       smallest_value = unsorted_array[i]
+  #       smallest_value_index = i
+  #     end
+  #     i += 1
+  #   end
+  #   sorted_array << unsorted_array.delete_at(smallest_value_index)
+  #   swapped = false if unsorted_array.length == 0
+  # end
+  # puts sorted_array
 
 
 
