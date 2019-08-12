@@ -131,4 +131,20 @@ def bubble_sort_recursive(array)
   return array
 end
 
-puts bubble_sort_recursive([2,3,1,5,4,10,20,11,13,18,15,14])
+#puts bubble_sort_recursive([2,3,1,5,4,10,20,11,13,18,15,14])
+def my_shuffle(array)
+  i = 0
+  shuffle = []
+  while array.length != 0
+    shuffle << array.delete_at(rand(array.length))
+  end
+  return shuffle
+end
+
+def random_number(num)
+    return rand(num)
+end
+# puts random_number(5)
+# puts random_number(5)
+# puts random_number(5)
+puts my_shuffle([2,3,1,5,4,10,20,11,13,18,15,14])
