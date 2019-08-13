@@ -141,10 +141,39 @@ def my_shuffle(array)
   return shuffle
 end
 
-def random_number(num)
-    return rand(num)
+def my_shuffle!(array)
+  j = 0
+  k = 0
+  array.length.times do
+    j = rand(array.length)
+    k = rand(array.length)
+    array[j],array[k] = array[k],array[j]
+  end
+  return array
+end
+
+def my_shuffle_v2!(array)
+  shuf = []
+
+  while array.length > 0
+    random_idx = rand(array.length)
+    new_arr = []
+    current_idx = 0
+    array.each do |item|
+      if current_idx == random_idx
+        shuf << item
+      else
+        new_arr << item
+      end
+      current_idx += 1
+    end
+    array = new_arr
+  end
+  return shuf
 end
 # puts random_number(5)
 # puts random_number(5)
 # puts random_number(5)
-puts my_shuffle([2,3,1,5,4,10,20,11,13,18,15,14])
+# puts my_shuffle([2,3,1,5,4,10,20,11,13,18,15,14])
+p my_shuffle!([2,3,1,5,4,10,20,11,13,18,15,14])
+p my_shuffle_v2!([2,3,1,5,4,10,20,11,13,18,15,14])
