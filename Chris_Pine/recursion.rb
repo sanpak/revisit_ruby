@@ -43,6 +43,31 @@ def sort(some_array)
   recursive_sort(some_array,[])
 end
 
+def sort_v2(some_array)
+  recursive_sort_v2(some_array,[])
+end
+
+def recursive_sort_v2(unsorted_array,sorted_array)
+  #when it stops
+  if unsorted_array.length == 0
+    return sorted_array
+  end
+  still_unsorted = []
+  smallest_value = unsorted_array.pop
+  unsorted_array.each do |num|
+    if smallest_value > num
+      still_unsorted << smallest_value
+      smallest_value = num
+    else
+      still_unsorted << num
+    end
+  end
+  sorted_array << smallest_value
+  recursive_sort_v2(still_unsorted,sorted_array)
+end
+
+p sort_v2([2,3,1,5,4,10,20,11,13,18,15,14])
+
 def recursive_sort(unsorted_array,sorted_array)
 
   #solve it recursively
@@ -171,9 +196,48 @@ def my_shuffle_v2!(array)
   end
   return shuf
 end
-# puts random_number(5)
-# puts random_number(5)
-# puts random_number(5)
-# puts my_shuffle([2,3,1,5,4,10,20,11,13,18,15,14])
-p my_shuffle!([2,3,1,5,4,10,20,11,13,18,15,14])
-p my_shuffle_v2!([2,3,1,5,4,10,20,11,13,18,15,14])
+
+def dictionary_sort(array)
+
+  swapped = true
+
+  while swapped
+    i = 0
+    swapped = false
+    while i < array.length - 1
+      if array[i].downcase > array[i + 1].downcase
+        array[i],array[i + 1] = array[i + 1],array[i]
+        swapped = true
+      end
+      i += 1
+    end
+  end
+  return array
+end
+
+def dictionary_sort_v2(array)
+
+  swapped = true
+
+  while swapped
+    i = 0
+    swapped = false
+    while i < array.length - 1
+      if array[i] > array[i + 1]
+        array[i],array[i + 1] = array[i + 1],array[i]
+        swapped = true
+      end
+      i += 1
+    end
+  end
+  return array
+end
+
+# p dictionary_sort(["John","john","Peter","Apple","Banana","bell","BEll"])
+# p dictionary_sort_v2(["John","john","Peter","Apple","Banana","bell","BEll"])
+# # puts random_number(5)
+# # puts random_number(5)
+# # puts random_number(5)
+# # puts my_shuffle([2,3,1,5,4,10,20,11,13,18,15,14])
+# p my_shuffle!([2,3,1,5,4,10,20,11,13,18,15,14])
+# p my_shuffle_v2!([2,3,1,5,4,10,20,11,13,18,15,14])
