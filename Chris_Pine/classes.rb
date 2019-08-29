@@ -46,7 +46,34 @@ def happy_birthday
   puts " your age is #{age}"
 end
 
-puts happy_birthday
+# puts happy_birthday
+
+def happy_birthday_v2
+  puts "What year did you born"
+  born_year = gets.chomp
+  puts "What month did you born"
+  born_month = gets.chomp
+  puts "What day did you born"
+  born_day = gets.chomp
+  age_count = -1
+  now_time = Time.new
+  born_time = Time.mktime(born_year,born_month,born_day)
+
+  while born_time < now_time
+    if leap_year?(born_time.to_s.split(" ")[0].split("-")[0].to_i + 1)
+        puts "SPANG! #{born_time}"
+        born_time += seconds_in_a_leap_year
+      # puts "SPANG! #{born_time}"
+    else
+      puts "SPANG! #{born_time}"
+      born_time += seconds_in_a_year
+    end
+    age_count += 1
+  end
+  puts age_count
+end
+
+
 
 def print_leap_year(start_year,end_year)
   (start_year..end_year).select { |year| leap_year?(year)  }
@@ -64,6 +91,12 @@ end
 
 # puts print_leap_year(1800,1830)
 
+def seconds_in_a_leap_year
+  return 60 * 60 * 24 * 366
+end
+
 def seconds_in_a_year
   return 60 * 60 * 24 * 365
 end
+
+happy_birthday_v2
