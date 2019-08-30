@@ -19,12 +19,37 @@
 #   puts codeType + ': ' + color
 # end
 #
-weirdHash = Hash.new
+# weirdHash = Hash.new
+#
+# weirdHash[12] = 'monkeys'
+# weirdHash[[]] = 'emptiness'
+# weirdHash[Time.new] = 'no time like the present'
+#
+# weirdHash.each do |typeName,type|
+#   puts typeName.to_s + ": " + type
+# end
 
-weirdHash[12] = 'monkeys'
-weirdHash[[]] = 'emptiness'
-weirdHash[Time.new] = 'no time like the present'
+# class Integer
+#   def to_eng
+#     if self == 5
+#       english = 'five'
+#     else
+#       english = "fifty-eight"
+#     end
+#     english
+#   end
+# end
+#
+# puts 5.to_eng
+# puts 58.to_eng
+# puts 99.to_eng
+class Die
+  def roll
+    1 + rand(6)
+  end
+end
 
-weirdHash.each do |typeName,type|
-  puts typeName.to_s + ": " + type
+dice = [Die.new,Die.new]
+dice.each do |die|
+  puts die.roll
 end
