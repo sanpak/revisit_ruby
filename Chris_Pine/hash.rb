@@ -43,13 +43,47 @@
 # puts 5.to_eng
 # puts 58.to_eng
 # puts 99.to_eng
+# class Die
+#   def roll
+#     1 + rand(6)
+#   end
+# end
+#
+# dice = [Die.new,Die.new]
+# dice.each do |die|
+#   puts die.roll
+# end
+# class Die
+#   def roll
+#     @numberShowing = 1 + rand(6)
+#   end
+#
+#   def showing
+#     @numberShowing
+#   end
+# end
+#
+# die = Die.new
+# puts die.showing
 class Die
+  def initialize
+    roll
+  end
+
   def roll
-    1 + rand(6)
+    @numberShowing = 1 + rand(6)
+  end
+
+  def showing
+    @numberShowing
+  end
+
+  def cheat=(side)
+    @numberShowing = side
   end
 end
 
-dice = [Die.new,Die.new]
-dice.each do |die|
-  puts die.roll
-end
+newDie =  Die.new
+newDie.cheat = 6
+puts newDie.roll
+newDie.cheat = 6
