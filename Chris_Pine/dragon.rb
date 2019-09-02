@@ -13,7 +13,7 @@ class Dragon
     puts @name + ' is born.'
     while @input
       puts "Please give the dragon some commands"
-      @input = gets.chomp.downcase
+      @input = gets.chomp.downcase.delete(" ")
       break if @input == "exit"
       dispatch(@input)
     end
@@ -23,6 +23,8 @@ class Dragon
     feed if commands == "feed"
     walk if commands == "walk"
     putToBed if commands == "puttobed"
+    toss if commands == "toss"
+    rock if commands == "rock"
   end
 
   def feed
