@@ -1,10 +1,14 @@
 class Dragon
-  def initialize name
-    @name = name
+  def initialize
+    @name = ""
     @asleep = false
     @stuffInBelly = 10
     @stuffInIntestine = 0
+  end
 
+  def run
+    puts "What is the name of your Dragon"
+    @name = gets.chomp
     puts @name + ' is born.'
   end
 
@@ -101,15 +105,5 @@ class Dragon
 
 end
 
-pet = Dragon.new "Norbert"
-pet.feed
-pet.toss
-pet.walk
-pet.walk
-pet.walk
-pet.walk
-pet.walk
-pet.walk
-pet.walk
-pet.walk
-p pet.inspect
+dragon1 = Dragon.new
+dragon1.run
