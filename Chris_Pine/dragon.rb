@@ -1,5 +1,6 @@
 class Dragon
   def initialize
+    @input = ""
     @name = ""
     @asleep = false
     @stuffInBelly = 10
@@ -10,6 +11,18 @@ class Dragon
     puts "What is the name of your Dragon"
     @name = gets.chomp
     puts @name + ' is born.'
+    while @input
+      puts "Please give the dragon some commands"
+      @input = gets.chomp.downcase
+      break if @input == "exit"
+      dispatch(@input)
+    end
+  end
+
+  def dispatch(commands)
+    feed if commands == "feed"
+    walk if commands == "walk"
+    putToBed if commands == "puttobed"
   end
 
   def feed
