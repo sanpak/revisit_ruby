@@ -29,7 +29,7 @@ end
 #   array
 # end
 array = [20,4,3,1,50,40,30,15,23,30]
-array2 = [10,4,7,1]
+array2 = [20,4,3,1,50,40,30,15,23,30]
 def bubble_sort(array)
   i = 0
   swapped = true
@@ -63,6 +63,24 @@ profile "bubble_sort" do
   end
   p array
 end
+
+def bubble_sort_recursive(array,n)
+  return array if n == 0
+
+  i = 0
+  while i < array.length - 1
+    if array[i] > array[i + 1]
+      array[i],array[i + 1] = array[i + 1],array[i]
+    end
+    i += 1
+  end
+  bubble_sort_recursive(array,n-1)
+end
+
+profile "bubble_sort_recursive" do
+  p bubble_sort_recursive(array2,array2.length - 1)
+end
+
 
 
 
